@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
-  const isUserLoggedIn = true;
+  const isUserLoggedIn = false;
 
   const [providers, setProviders] = useState(null);
 
@@ -30,7 +30,7 @@ const Nav = () => {
         />
         <p className="logo_text">Promptyard</p>
       </Link>
-      {/* {mobileNavigation} */}
+      {/* {Navigation} */}
       <div className="sm:flex hidden">
         {isUserLoggedIn ? (
           <div className="flex gap-3 md:gap-5">
@@ -51,9 +51,22 @@ const Nav = () => {
             </Link>
           </div>
         ) : (
-          <></>
+          <>
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  type="button"
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                  className="black_btn"
+                >
+                  Sign In
+                </button>
+              ))}
+          </>
         )}
       </div>
+      {/* {mobile Navigation} */}
     </nav>
   );
 };
