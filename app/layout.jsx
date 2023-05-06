@@ -1,11 +1,25 @@
-import '@styles/globals.css'
+import '../styles/globals.css'
 
-const layout = () => {
+
+export const metadata={
+    title: 'Prompyard',
+    description: 'Discover and Share AI Prompts'
+}
+
+const RootLayout = ({children}) => {
   return (
-    <div>
-      Layout
-    </div>
+    <html lang='en'>
+    <body>
+        <div className='main'>
+            <div className='gradient' />
+        </div>
+
+        <main className='app'>
+            {children}
+        </main>
+    </body>
+    </html>
   )
 }
 
-export default layout
+export default RootLayout
