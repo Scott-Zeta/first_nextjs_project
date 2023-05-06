@@ -16,6 +16,7 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
+        <p className="logo_text">Promptyard</p>
       </Link>
     </nav>
   );
